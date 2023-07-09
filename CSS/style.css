@@ -1,0 +1,108 @@
+*{
+    margin: 0px;
+    padding: 0px;
+    box-sizing: border-box;
+    font-family: sans-serif;
+}
+
+body{
+    background-color: #222;
+}
+
+/* CSS For the weather box/card */
+.card{
+    width: 90%;
+    max-width: 500px;
+    color: #fff;
+    margin: 100px auto 0;
+    padding: 40px 35px;
+    border-radius: 23px;
+    text-align: center;
+    background: linear-gradient(135deg, #aeabc6, #066868);
+}
+
+/* CSS For Search Bar */
+.search{
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    text-align: center;
+}
+.search input{
+    border: 0;
+    outline: 0;
+    background: #ebfffc;
+    color: #555;
+    padding: 10px 25px;
+    height: 60px;
+    border-radius: 30px;
+    margin-right: 16px;
+    font-size: 18px;
+    flex: 1;
+}
+.search button{    
+    border: 0;    
+    outline: 0;
+    background: #ebfffc;
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    padding: 16px;
+    cursor: pointer;
+}
+.search button img{
+    height: 30px;
+    width: 30px;
+}
+
+/* CSS For weather icon */
+.weather-icon{
+    width: 200px;
+    margin-top: 23px;
+}
+.weather h1{
+    font-size: 70px;
+    font-weight: 500;
+}
+.weather h2{
+    font-size: 40px;
+    font-weight: 200;
+    margin-top: 10px;
+}
+.weather{
+    display: none;
+}
+
+/* CSS For details  */
+.details{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0px 30px;
+    margin-top: 50px;
+
+}
+.col{
+    display: flex;
+    align-items: center;
+    text-align: left;
+}
+.col img{
+    width: 40px;
+    margin-right: 10px;
+}
+
+/* CSS For text in details  */
+.humidity, .wind{
+    font-size: 18px;
+    font-weight: bold;
+}
+
+/* Error  */
+.error{
+    text-align: left;
+    margin-left: 25px;
+    margin-top: 12px;
+    font-size: 15px;
+    display: none;    
+}
