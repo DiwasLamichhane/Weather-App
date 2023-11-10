@@ -1,6 +1,7 @@
-// api data colleced from https://openweathermap.org/ 
+// api data colleced from https://openweathermap.org/
 const apiKey = "5d0e27824ee3192bfb0c3551dddfb324";
-const apiUrl = "https://api.openweathermap.org/data/2.5/weather?units=metric&q=";
+const apiUrl =
+  "https://api.openweathermap.org/data/2.5/weather?units=metric&q=";
 
 const searchBox = document.querySelector(".search input");
 const searchBtn = document.querySelector(".search button");
@@ -9,44 +10,42 @@ const weatherIcon = document.querySelector(".weather-icon");
 async function checkWeather(city) {
   const response = await fetch(apiUrl + city + `&appid=${apiKey}`);
 
-  if(response.status == 404){
+  if (response.status == 404) {
     document.querySelector(".error").style.display = "block";
     document.querySelector(".weather").style.display = "none";
-  }else{
+  } else {
     let data = await response.json();
-  
-  
+
     document.querySelector(".city-name").innerHTML = data.name;
-    document.querySelector(".temp").innerHTML = Math.round(data.main.temp) + " °C";
+    document.querySelector(".temp").innerHTML =
+      Math.round(data.main.temp) + " °C";
     document.querySelector(".humidity").innerHTML = data.main.humidity + "%";
     document.querySelector(".wind").innerHTML = data.wind.speed + " km/h";
 
-    if(data.weather[0].main == "Clouds") {
+    if (data.weather[0].main == "Clouds") {
       weatherIcon.src = "Images/cloud.png";
-    }
-    else if(data.weather[0].main == "Clear") {
+    } else if (data.weather[0].main == "Clear") {
       weatherIcon.src = "Images/clear.png";
-    }
-    else if(data.weather[0].main == "Rain") {
+    } else if (data.weather[0].main == "Rain") {
       weatherIcon.src = "Images/rain.png";
-    }
-    else if(data.weather[0].main == "Drizzle") {
+    } else if (data.weather[0].main == "Drizzle") {
       weatherIcon.src = "Images/drizzle.png";
-    }
-    else if(data.weather[0].main == "Mist") {
+    } else if (data.weather[0].main == "Mist") {
       weatherIcon.src = "Images/mist.png";
-    }
-    else if(data.weather[0].main == "Snow") {
+    } else if (data.weather[0].main == "Snow") {
       weatherIcon.src = "Images/snow.png";
     }
 
     document.querySelector(".weather").style.display = "block";
     document.querySelector(".error").style.display = "none";
-    
-  }  
- 
+  }
 }
-searchBtn.addEventListener("click", ()=>{
-    checkWeather(searchBox.value);  
+searchBtn.addEventListener("click", () => {
+  checkWeather(searchBox.value);
 });
 
+searchBox.addEventListener("keydown", (e) => {
+  if (e.key == "Enter") {
+    checkWeather(searchBox.value);
+  }
+});
